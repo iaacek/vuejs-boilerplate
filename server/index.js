@@ -80,6 +80,8 @@ router.post('/auth/forgot', auth.forgot); // reset password for existing user - 
 router.post('/auth/reset/:token', auth.reset); // rest pwd, check the token, expiry and set the new password + send email confirmation
 router.get('/auth/hashTest', auth.hashTest); // hash speed test - DISABLE FOR PRODUCTION
 
+// admin only route
+// router.post('/admin/users', auth.checkRole('systemRole', 'admin'), users.users); // just a sample
 
 // *** Server Init ***
 app.use('/api/v1', router);

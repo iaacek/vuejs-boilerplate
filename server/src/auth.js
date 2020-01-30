@@ -356,7 +356,6 @@ const hashTest = async function(req, res) {
 
 
 module.exports = {
-    //secret,
     checkRole,
     login,
     register,

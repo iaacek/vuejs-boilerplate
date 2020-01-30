@@ -5,7 +5,7 @@ const env = process.env.NODE_ENV || 'development'; // 'development' or 'producti
 // Generic config for both dev and prod
 const jwtSecret = 'MoreSecretThanACatInTheBag'; // make sure to replace this with your own phrase
 const mailConfig = {
-    host: 'mail.<email_provider>',
+    host: '<email_provider>',
         port: 587,
         secure: false,
         auth: {
