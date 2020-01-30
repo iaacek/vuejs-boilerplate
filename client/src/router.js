@@ -71,6 +71,30 @@ router.beforeEach((to, from, next) => {
         }
     }
 
+    // for routes that require system admin role
+    if (to.matched.some(record => record.meta.requiresSystemAdmin)) {
+        if (auth.checkRole('systemRole', 'admin')) {
+            next()
+        } else {
+            next({
+                path: '/login',
+                query: { redirect: to.fullPath }
+            })
+        }
+    }
+
+    // for routes that require system poweruser role
+    if (to.matched.some(record => record.meta.requiresSystemPoweruser)) {
+        if (auth.checkRole('systemRole', 'poweruser')) {
+            next()
+        } else {
+            next({
+                path: '/login',
+                query: { redirect: to.fullPath }
+            })
+        }
+    }
+
     // for routes that should not be available to logged users (/login, /register, etc)
     if (to.matched.some(record => record.meta.noAuth)) {
         if (auth.user.authenticated) {
