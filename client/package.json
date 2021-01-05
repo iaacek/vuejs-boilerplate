@@ -10,7 +10,7 @@
     "prod": "cross-env NODE_ENV=production webpack --config ./config/webpack4.prod.config.js --progress"
   },
   "dependencies": {
-    "axios": "0.19.2",
+    "axios": "0.21.1",
     "bulma": "0.8.1",
     "jsonwebtoken": "8.5.1",
     "moment": "2.24.0",
